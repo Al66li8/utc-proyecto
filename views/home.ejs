@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bienvenido</title>
+</head>
+<body>
+
+  <h1>Bienvenido, <%= userName %>!</h1>
+  <p>ESTE ES MI PRIMER EJEMPLO ENVIANDO DATOS A LA PLANTILLA EJS</p>
+
+  <p>Edad: <%= edad %> años</p>
+  <p>Ciudad: <%= ciudad %></p>
+  <div>Artista favorito: <%= artista %></div>
+  <div>Teléfono: <%= telefono %></div>
+  <div style="color:<%= colorFavorito ? colorFavorito.toLowerCase() : 'black' %>;">
+    Color favorito: <%= colorFavorito %>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Productos</title>
+</head>
+<body>
+
+	<!--LISTA EN HTML-->
+    <h1>Lista de productos</h1>
+	<ul>
+		<% productos.forEach(producto => { %> 
+			<li><%= producto.nombre %>  <%= producto.precio %></li>
+		<% }) %>
+	</ul>
+
+</body>
+</html>
+

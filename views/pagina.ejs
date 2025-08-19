@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLACKPINK </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #f3e5f5);
+      color: #333;
+    }
+
+    header {
+      background-color: #000;
+      color: #ff69b4;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+      flex-wrap: wrap; /* Para que sea responsivo */
+    }
+
+    .descripcion {
+      flex: 1;
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .descripcion p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .imagen {
+      flex: 1;
+      text-align: center;
+    }
+
+    .imagen img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    }
+
+    .btn-volver {
+      display: block;
+      margin: 2rem auto;
+      padding: 12px 25px;
+      background-color: #ff69b4;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .btn-volver:hover {
+      background-color: #d81b60;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .descripcion, .imagen {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    BLACKPINK IN YOUR AREA 🎤✨
+  </header>
+
+  <div class="container">
+    <div class="descripcion">
+      <p><strong>BLACKPINK</strong> es una de las girl bands más famosas del mundo, formada por Jisoo, Jennie, Rosé y Lisa.</p>
+      <p>Debutaron en 2016 bajo YG Entertainment y han dominado el K-pop internacional con éxitos como <em>"Kill This Love"</em> y <em>"Pink Venom"</em>.</p>
+      <p>Con un estilo visual poderoso y una presencia escénica única, BLACKPINK ha creado una legión de fans llamada <strong>BLINKs</strong>. 💖🖤</p>
+    </div>
+
+    <div class="imagen">
+      <img src="/images/imagen.jpg" alt="BLACKPINK" />
+    </div>
+  </div>
+
+  <a class="btn-volver" href="/">← Regresar al inicio</a>
+</body>
+</html>
