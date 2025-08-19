@@ -52,7 +52,8 @@ app.get('/tabla', async (req, res) => {
       return res.send('No se encontraron alumnos.');
     }
 
-    res.render('tabla', { alumnos });
+    res.render('Tabla', { alumnos });
+
   } catch (err) {
     console.error('Error consultando alumnos:', err);
     res.status(500).send(`<pre>${err}</pre>`); // Muestra error completo en Render
