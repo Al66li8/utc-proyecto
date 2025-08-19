@@ -3,15 +3,23 @@ const path = require('path');
 const app = express();
 const db = require('./db');
 
-
+// -----------------------------
 // Configuración de EJS y carpeta de vistas
+// -----------------------------
+// Forzar ruta absoluta para views en Render
+const viewsPath = path.join(process.cwd(), 'views');
+console.log('Carpeta de vistas:', viewsPath);
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', viewsPath);
 
 // Carpeta pública para imágenes y CSS
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
-// Ruta para la página principal (home)
+// -----------------------------
+// Rutas
+// -----------------------------
+
+// Página principal (home)
 app.get('/', (req, res) => {
   res.render('home', {
     userName: 'Alexia',
@@ -23,7 +31,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// Ruta para productos
+// Productos
 app.get('/productos', (req, res) => {
   const productos = [
     { id: 1, nombre: 'laptop', precio: 5000 },
@@ -33,24 +41,28 @@ app.get('/productos', (req, res) => {
   res.render('productos', { productos });
 });
 
-// Ruta para la página con la tabla de alumnos
+// Tabla de alumnos
 app.get('/tabla', async (req, res) => {
   try {
     const result = await db.query('SELECT "Nombre", "a_paterno", "a_materno", "edad" FROM "Alumnos"');
-    const alumnos = result.rows;  // <-- esta variable existe
-    res.render('tabla', { alumnos });  
+    const alumnos = result.rows;
+
+    // Render con manejo de error visual
+    if (!alumnos || alumnos.length === 0) {
+      return res.send('No se encontraron alumnos.');
+    }
+
+    res.render('tabla', { alumnos });
   } catch (err) {
     console.error('Error consultando alumnos:', err);
-    res.send('Error al obtener los datos de los alumnos.');
+    res.status(500).send(`<pre>${err}</pre>`); // Muestra error completo en Render
   }
 });
 
-
-// Ruta para la página con la imagen (la que mencionabas como /pagina)
+// Página con imagen (/pagina)
 app.get('/pagina', (req, res) => {
   res.render('pagina');
 });
-
 
 // Iniciamos el servidor en el puerto 4000
 const PORT = 4000;
